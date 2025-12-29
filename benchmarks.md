@@ -7,27 +7,37 @@
     - [Windows 11 25H2](#windows-11-25h2)
       - [GeekBench 6.5.0](#geekbench-650)
       - [CPU-Z v2.17.0](#cpu-z-v2170)
+      - [NovaBench](#novabench)
+      - [Passmark PerformanceTest 11.1](#passmark-performancetest-111)
       - [Cinebench 2024](#cinebench-2024)
       - [Cinebench R23](#cinebench-r23)
       - [AIDA64 (Memory test)](#aida64-memory-test)
       - [CrystalDiskMark 9.0.1](#crystaldiskmark-901)
-      - [Blackmagic RAW Speed Test](#blackmagic-raw-speed-test)
-      - [Passmark PerformanceTest 11.1](#passmark-performancetest-111)
-      - [NovaBench](#novabench)
+      - [BlackmagicDesign RAW Speed Test](#blackmagicdesign-raw-speed-test)
   - [В macOS](#в-macos)
     - [macOS 15.7.3 Sequoia](#macos-1573-sequoia)
+      - [GeekBench 6.5.0](#geekbench-650-1)
+      - [NovaBench](#novabench-1)
+      - [Passmark PerformanceTest 11.1](#passmark-performancetest-111-1)
+      - [Cinebench 2024](#cinebench-2024-1)
+      - [Cinebench R23](#cinebench-r23-1)
+      - [AmorphousMemoryMark](#amorphousmemorymark)
+      - [AmorphousDiskMark](#amorphousdiskmark)
+      - [BlackmagicDesign Disk Speed Test](#blackmagicdesign-disk-speed-test)
+      - [Unigine](#unigine)
+      - [Intel Power Gadget graphics](#intel-power-gadget-graphics)
   - [Локальные выводы](#локальные-выводы)
 
 
 ## Предисловие
 
-Изначально я запускал бенчмарки в Windows 11 25H2 и при нагрузке на процессор я наблюдал, что его частота повышается до ~5.4 ГГц буквально на 2-3 секунды, а потом падает до ~2.8-3 ГГц и держится на этой отметке все оставшееся время. И это мне показалось странным, потому что процессор 10-летней давности Intel Xeon E5-2666 v3 без разблокировки турбобуста держал примерно такую же частоту при длительной нагрузке.
+Изначально я запускал бенчмарки в Windows 11 25H2 и при нагрузке на процессор я наблюдал, что его частота повышается до ~5.3 ГГц буквально на 2-3 секунды, а потом падает до ~2.8-3 ГГц и держится на этой отметке все оставшееся время. И это мне показалось странным, потому что процессор 10-летней давности Intel Xeon E5-2666 v3 без разблокировки турбобуста держал примерно такую же частоту при длительной нагрузке.
 
 Поскольку у меня все предыдущие материнские платы были с "синим биосом" и без функций оверклокинга, я не знал о многих новшествах современных материнских плат с GUI. Предыдущая материнская плата в моем компьютере была на платформе x99 с китайским брендом Jginyue x99 Titanium D3.
 
 Я погуглил такое поведение процессора под нагрузкой и наткнулся на пост, в котором человек описывает схожую с моей ситуацию - https://www.reddit.com/r/overclocking/comments/1g6xts9/i7_14700_wont_stay_at_max_mhz/
 
-Изначально в BIOS/UEFI параметр `Overclocking -> Advanced CPU Configuration -> Long Duration Power Limit` был выставлен на "Авто" (65 ватт) и при такой настройке при длительных нагрузках частота процессора была около ~3 ГГц (хотя его максимальная частота в турбобусте - 5,4 ГГц). Получается при длительных нагрузках поддерживалась такая частота процессора, чтобы не превышать TDP в 65 ватт.
+Изначально в BIOS/UEFI параметр `Overclocking -> Advanced CPU Configuration -> Long Duration Power Limit` был выставлен на "Авто" (65 ватт) и при такой настройке при длительных нагрузках частота процессора была около ~3 ГГц (хотя его максимальная частота в турбобусте - 5.4 ГГц). Получается при длительных нагрузках поддерживалась такая частота процессора, чтобы не превышать TDP в 65 ватт.
 
 Поскольку в официальных характеристиках процессора (например на [techpowerup](https://www.techpowerup.com/cpu-specs/core-i7-14700.c3442)) заявлен максимальный TDP в 219 ватт, **я в параметре "Long Duration Power Limit" выставил значение 180 ватт**, чтобы при длительных нагрузках иметь удовлетворительную производительность, а не уровень 10-летнего процессора Intel Xeon. И с такой настройкой я работаю за компьютером и с такой настройкой проводил итоговое тестирование в бенчмарках. Никакого разгона или андервольтинга я на текущий момент не проводил.
 
@@ -64,6 +74,14 @@
 - https://valid.x86.fr/2wc61c
 - https://valid.x86.fr/qr9vd5
 
+#### NovaBench
+
+https://novabench.com/result/8ad2358a-8891-453e-9cb1-b05974c58e4e
+
+#### Passmark PerformanceTest 11.1
+
+https://www.passmark.com/baselines/V11/display.php?id=317161134007
+
 #### Cinebench 2024
 
 ![cinebench 2024 results](https://github.com/user-attachments/assets/ac3e8ea6-f976-40c1-b890-378fd6b01bae)
@@ -81,25 +99,76 @@
 #### CrystalDiskMark 9.0.1
 
 For WD Black SN850
+
 ![crystal disk mark 9 results](https://github.com/user-attachments/assets/65eb3605-8ac3-4635-a4b0-74065acf63b3)
 
-#### Blackmagic RAW Speed Test
+#### BlackmagicDesign RAW Speed Test
 
-![Blackmagic RAW Speed Test results](https://github.com/user-attachments/assets/7941a299-1b4f-4dc9-9092-1f2ef8de4245)
-
-#### Passmark PerformanceTest 11.1
-
-https://www.passmark.com/baselines/V11/display.php?id=317161134007
-
-#### NovaBench
-
-https://novabench.com/result/8ad2358a-8891-453e-9cb1-b05974c58e4e
+![BlackmagicDesign RAW Speed Test results](https://github.com/user-attachments/assets/7941a299-1b4f-4dc9-9092-1f2ef8de4245)
 
 
 
 ## В macOS
 
+- SMBIOS MacPro7,1 with CPUFriendDataProvider.kext с отредактированными FrequencyVectors на основе SMBIOS iMac20,1 от @Vandroiy на [applelife](https://applelife.ru/threads/frequencyvectors-cpufriend.1869656/page-15#post-937613). Без этого с SMBIOS MacPro7,1 частота процессора не превышала ~4.2 ГГц
+- CpuTopologyRebuild.kext v2.0.2 с аргументом загрузки `ctrsmt=full`, что с Intel Core i7-14700 дает 8 ядер и 28 потоков в macOS
+
 ### macOS 15.7.3 Sequoia
+
+#### GeekBench 6.5.0
+
+- CPU: https://browser.geekbench.com/v6/compute/5457037
+- GPU AMD RX 6600 (OpenCL): https://browser.geekbench.com/v6/compute/5490287
+- GPU AMD RX 6600 (Metal): https://browser.geekbench.com/v6/compute/5490299
+
+#### NovaBench
+
+https://novabench.com/result/a4bc9c86-80f9-44ba-bae7-02f77a67b822
+
+#### Passmark PerformanceTest 11.1
+
+https://www.passmark.com/baselines/V11/display.php?id=511039212573
+
+#### Cinebench 2024
+
+![cinebench 2024 results](https://github.com/user-attachments/assets/fb35c6c4-6fba-41a5-95ed-d2271566169d)
+
+#### Cinebench R23
+
+![cinebench r23 single core results](https://github.com/user-attachments/assets/7fd287cc-56d4-43d6-9ed7-876a14de87ab)
+![cinebench r23 multi core results](https://github.com/user-attachments/assets/1ad94eb9-2262-4add-99c7-f058e99dd0bc)
+![cinebench r23 MP ratio results](https://github.com/user-attachments/assets/4d125f0e-6fab-4bce-92c5-b17233fbf67e)
+
+#### AmorphousMemoryMark
+
+![AmorphousMemoryMark results](https://github.com/user-attachments/assets/17696de0-3768-48ac-bd26-dab7b3ebb625)
+
+#### AmorphousDiskMark
+
+WD Black SN850
+
+![AmorphousDiskMark results](https://github.com/user-attachments/assets/aee7c389-3c47-4871-a388-6b63a52f1b4e)
+
+#### BlackmagicDesign Disk Speed Test
+
+WD Black SN850
+
+![BlackmagicDesign Disk Speed Test results](https://github.com/user-attachments/assets/adf14458-aad9-4c23-abff-723cba386ce9)
+
+#### Unigine
+
+Valley 1.0
+
+![Unigine Valley results](https://github.com/user-attachments/assets/23282a02-341b-4100-9f70-173e4753534a)
+
+Heaven 4.0
+
+![Unigine Heaven results](https://github.com/user-attachments/assets/58270068-269b-4e7b-93bb-b8bad80c946b)
+
+#### Intel Power Gadget graphics
+
+![Intel Power Gadget graphic 1](https://github.com/user-attachments/assets/e9d649df-b93a-4149-aa73-55b56db15615)
+![Intel Power Gadget graphic 2](https://github.com/user-attachments/assets/aad4247e-f53a-4dfa-b9e2-084e57c9a70a)
 
 
 
@@ -110,3 +179,14 @@ https://novabench.com/result/8ad2358a-8891-453e-9cb1-b05974c58e4e
 Например на сайте [notebookcheck.net на странице с i7-14700](https://www.notebookcheck.net/Intel-Core-i7-14700-Processor-Benchmarks-and-Specs.930220.0.html) результаты Geekbench 6.5 - Geekbench 6.5 Multi-Core - 14072 points, а мои результаты ~20000 points. То есть их параметр такой же, как при "Long Duration Power Limit" установленном на 65 ватт.
 
 Получается с установкой параметра "Long Duration Power Limit" на 180 ватт, результаты работы моего процессора в бенчмарках примерно такие же, как у K-версии (с разблокированным множителем).
+
+---
+
+Взаимодействие с накопителями и памятью в macOS заметно медленнее, чем в Windows, но не сильно.
+В хакинтоше на платформе x99, кстати, ситуация была такая же.
+
+---
+
+macOS, похоже, "любит прогревать оборудование", потому что при нагрузке видеокарты в Unigine температура RX 6600 по датчикам в приложении Stats доходила до 83 градусов по Цельсия, а вентиляторы на видеокарте при этом крутились всего лишь на 33% от максимальной мощности (по показателям в том же приложении Stats).
+
+Не знаю нормально ли это, но мне кажется это не нормальным и по хорошему нужно будет отредактировать кривую работы кулера видеокарты в соответствии с нагревом.
